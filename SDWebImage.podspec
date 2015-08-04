@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
     core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
-    core.requires_arc = true
   end
 
   s.subspec 'MapKit' do |mk|
