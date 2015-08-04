@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
-    core.source_files = 'SDWebImage/{NS,SD,UI}*.{h,m}'
+    core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
     core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
   end
 

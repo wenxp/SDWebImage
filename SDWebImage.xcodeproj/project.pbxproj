@@ -135,6 +135,18 @@
 		53EDFB8D17623F7C00698166 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EDFB8917623F7C00698166 /* UIImage+MultiFormat.m */; };
 		53EDFB941762547D00698166 /* UIImage+WebP.h in Headers */ = {isa = PBXBuildFile; fileRef = 53EDFB911762547C00698166 /* UIImage+WebP.h */; };
 		53EDFB961762547D00698166 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EDFB921762547C00698166 /* UIImage+WebP.m */; };
+		57CFBE351B705A6600A4F09F /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CFBE311B705A6600A4F09F /* FLAnimatedImage.h */; };
+		57CFBE361B705A6600A4F09F /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CFBE311B705A6600A4F09F /* FLAnimatedImage.h */; };
+		57CFBE371B705A6600A4F09F /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CFBE311B705A6600A4F09F /* FLAnimatedImage.h */; };
+		57CFBE381B705A6600A4F09F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CFBE321B705A6600A4F09F /* FLAnimatedImage.m */; };
+		57CFBE391B705A6600A4F09F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CFBE321B705A6600A4F09F /* FLAnimatedImage.m */; };
+		57CFBE3A1B705A6600A4F09F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CFBE321B705A6600A4F09F /* FLAnimatedImage.m */; };
+		57CFBE3B1B705A6600A4F09F /* FLAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CFBE331B705A6600A4F09F /* FLAnimatedImageView.h */; };
+		57CFBE3C1B705A6600A4F09F /* FLAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CFBE331B705A6600A4F09F /* FLAnimatedImageView.h */; };
+		57CFBE3D1B705A6600A4F09F /* FLAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CFBE331B705A6600A4F09F /* FLAnimatedImageView.h */; };
+		57CFBE3E1B705A6600A4F09F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CFBE341B705A6600A4F09F /* FLAnimatedImageView.m */; };
+		57CFBE3F1B705A6600A4F09F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CFBE341B705A6600A4F09F /* FLAnimatedImageView.m */; };
+		57CFBE401B705A6600A4F09F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CFBE341B705A6600A4F09F /* FLAnimatedImageView.m */; };
 		5D5B9142188EE8DD006D06BD /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5B9140188EE8DD006D06BD /* NSData+ImageContentType.h */; };
 		5D5B9143188EE8DD006D06BD /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5B9140188EE8DD006D06BD /* NSData+ImageContentType.h */; };
 		5D5B9144188EE8DD006D06BD /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5B9140188EE8DD006D06BD /* NSData+ImageContentType.h */; };
@@ -281,6 +293,10 @@
 		53EDFB921762547C00698166 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		53FB893F14D35D1A0020B787 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		53FB894814D35E9E0020B787 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		57CFBE311B705A6600A4F09F /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
+		57CFBE321B705A6600A4F09F /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
+		57CFBE331B705A6600A4F09F /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
+		57CFBE341B705A6600A4F09F /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
 		5D5B9140188EE8DD006D06BD /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		5D5B9141188EE8DD006D06BD /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		A18A6CC5172DC28500419892 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
@@ -464,6 +480,7 @@
 				53922D88148C56230056699D /* SDWebImageCompat.h */,
 				5340674F167780C40042B59E /* SDWebImageCompat.m */,
 				530E49E71646388E002868E7 /* SDWebImageOperation.h */,
+				57CFBE301B705A3D00A4F09F /* FLAnimatedImage */,
 				53922DAB148C56810056699D /* Downloader */,
 				53922DAA148C56470056699D /* Cache */,
 				53922DAC148C56DD0056699D /* Utils */,
@@ -528,6 +545,17 @@
 				53922D92148C56230056699D /* SDWebImagePrefetcher.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		57CFBE301B705A3D00A4F09F /* FLAnimatedImage */ = {
+			isa = PBXGroup;
+			children = (
+				57CFBE311B705A6600A4F09F /* FLAnimatedImage.h */,
+				57CFBE321B705A6600A4F09F /* FLAnimatedImage.m */,
+				57CFBE331B705A6600A4F09F /* FLAnimatedImageView.h */,
+				57CFBE341B705A6600A4F09F /* FLAnimatedImageView.m */,
+			);
+			name = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
 		DA577C121998E60B007367ED /* libwebp */ = {
@@ -663,6 +691,7 @@
 			files = (
 				4A2CAE041AB4BB5400B6BC39 /* WebImage.h in Headers */,
 				4A2CAE211AB4BB7000B6BC39 /* SDWebImageManager.h in Headers */,
+				57CFBE3D1B705A6600A4F09F /* FLAnimatedImageView.h in Headers */,
 				4A2CAE1F1AB4BB6C00B6BC39 /* SDImageCache.h in Headers */,
 				4A2CAE351AB4BB7500B6BC39 /* UIImageView+WebCache.h in Headers */,
 				4A2CAE181AB4BB6400B6BC39 /* SDWebImageCompat.h in Headers */,
@@ -678,6 +707,7 @@
 				4A2CAE231AB4BB7000B6BC39 /* SDWebImageDecoder.h in Headers */,
 				4A2CAE311AB4BB7500B6BC39 /* UIImage+WebP.h in Headers */,
 				4A2CAE2D1AB4BB7500B6BC39 /* UIImage+GIF.h in Headers */,
+				57CFBE371B705A6600A4F09F /* FLAnimatedImage.h in Headers */,
 				4A2CAE291AB4BB7500B6BC39 /* NSData+ImageContentType.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,6 +742,7 @@
 			files = (
 				53761316155AD0D5005750A4 /* SDImageCache.h in Headers */,
 				5D5B9142188EE8DD006D06BD /* NSData+ImageContentType.h in Headers */,
+				57CFBE3B1B705A6600A4F09F /* FLAnimatedImageView.h in Headers */,
 				53761318155AD0D5005750A4 /* SDWebImageCompat.h in Headers */,
 				53761319155AD0D5005750A4 /* SDWebImageDecoder.h in Headers */,
 				5376131A155AD0D5005750A4 /* SDWebImageDownloader.h in Headers */,
@@ -725,6 +756,7 @@
 				AB615303192DA24600A2D8E9 /* UIView+WebCacheOperation.h in Headers */,
 				A18A6CC7172DC28500419892 /* UIImage+GIF.h in Headers */,
 				53EDFB8A17623F7C00698166 /* UIImage+MultiFormat.h in Headers */,
+				57CFBE351B705A6600A4F09F /* FLAnimatedImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +796,7 @@
 				DA577D491998E60B007367ED /* rescaler.h in Headers */,
 				DA577D161998E60B007367ED /* yuv_tables_sse2.h in Headers */,
 				DA577D4E1998E60B007367ED /* decode.h in Headers */,
+				57CFBE3C1B705A6600A4F09F /* FLAnimatedImageView.h in Headers */,
 				ABBE71A918C43B5800B75E91 /* UIImageView+HighlightedWebCache.h in Headers */,
 				AB615304192DA24600A2D8E9 /* UIView+WebCacheOperation.h in Headers */,
 				DA577D031998E60B007367ED /* dsp.h in Headers */,
@@ -779,6 +812,7 @@
 				DA577D3B1998E60B007367ED /* endian_inl.h in Headers */,
 				DA577D3D1998E60B007367ED /* filters.h in Headers */,
 				DA577D6E1998E6B2007367ED /* decode_vp8.h in Headers */,
+				57CFBE361B705A6600A4F09F /* FLAnimatedImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,10 +996,12 @@
 				4A2CAE2A1AB4BB7500B6BC39 /* NSData+ImageContentType.m in Sources */,
 				4A2CAE221AB4BB7000B6BC39 /* SDWebImageManager.m in Sources */,
 				4A2CAE191AB4BB6400B6BC39 /* SDWebImageCompat.m in Sources */,
+				57CFBE401B705A6600A4F09F /* FLAnimatedImageView.m in Sources */,
 				4A2CAE2C1AB4BB7500B6BC39 /* UIButton+WebCache.m in Sources */,
 				4A2CAE381AB4BB7500B6BC39 /* UIView+WebCacheOperation.m in Sources */,
 				4A2CAE241AB4BB7000B6BC39 /* SDWebImageDecoder.m in Sources */,
 				4A2CAE341AB4BB7500B6BC39 /* UIImageView+HighlightedWebCache.m in Sources */,
+				57CFBE3A1B705A6600A4F09F /* FLAnimatedImage.m in Sources */,
 				4A2CAE201AB4BB6C00B6BC39 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,6 +1035,8 @@
 			files = (
 				53761309155AD0D5005750A4 /* SDImageCache.m in Sources */,
 				5376130A155AD0D5005750A4 /* SDWebImageDecoder.m in Sources */,
+				57CFBE381B705A6600A4F09F /* FLAnimatedImage.m in Sources */,
+				57CFBE3E1B705A6600A4F09F /* FLAnimatedImageView.m in Sources */,
 				5376130B155AD0D5005750A4 /* SDWebImageDownloader.m in Sources */,
 				5376130C155AD0D5005750A4 /* SDWebImageManager.m in Sources */,
 				5376130D155AD0D5005750A4 /* SDWebImagePrefetcher.m in Sources */,
@@ -1059,6 +1097,7 @@
 				537D957D17ECC1FE0097C263 /* SDWebImageCompat.m in Sources */,
 				DA577CFC1998E60B007367ED /* alpha_processing.c in Sources */,
 				DA577D761998E6B2007367ED /* vp8l.c in Sources */,
+				57CFBE3F1B705A6600A4F09F /* FLAnimatedImageView.m in Sources */,
 				DA577D0C1998E60B007367ED /* lossless_neon.c in Sources */,
 				DA577D001998E60B007367ED /* dec_mips32.c in Sources */,
 				537D957E17ECC1FE0097C263 /* UIImage+GIF.m in Sources */,
@@ -1068,6 +1107,7 @@
 				537D958017ECC1FE0097C263 /* UIImage+MultiFormat.m in Sources */,
 				DA577D141998E60B007367ED /* yuv_mips32.c in Sources */,
 				537D958117ECC1FE0097C263 /* UIImage+WebP.m in Sources */,
+				57CFBE391B705A6600A4F09F /* FLAnimatedImage.m in Sources */,
 				5D5B9146188EE8DD006D06BD /* NSData+ImageContentType.m in Sources */,
 				DA577D721998E6B2007367ED /* quant.c in Sources */,
 				DA577D091998E60B007367ED /* lossless.c in Sources */,
