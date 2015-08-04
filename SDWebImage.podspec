@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SDWebImage'
-  s.version = '3.7.3'
+  s.version = 'bz_3.7.4'
   s.platform = :ios, '5.0'
   s.license = 'MIT'
   s.summary = 'Asynchronous image downloader with cache support with an UIImageView category.'
@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
     core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
+    core.requires_arc = true
   end
 
   s.subspec 'MapKit' do |mk|
