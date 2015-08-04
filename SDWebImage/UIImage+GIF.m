@@ -13,8 +13,28 @@
 @implementation UIImage (GIF)
 
 
-+ (UIImage *)sd_animatedGIFWithData:(NSData *)data {
-    return [FLAnimatedImage imageWithData:data];
++ (UIImage *)sd_animatedGIFWithData:(NSData *)data
+{
+    if (!data)
+    {
+        return nil;
+    }
+    
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
+    
+    size_t count = CGImageSourceGetCount(source);
+    
+    if (count <= 1)
+    {
+        CFRelease(source);
+        return [UIImage imageWithData:data];
+    }
+    else
+    {
+        CFRelease(source);
+        return [FLAnimatedImage imageWithData:data];
+    }
+    return nil;
 }
 
 + (UIImage *)sd_animatedGIFNamed:(NSString *)name {
