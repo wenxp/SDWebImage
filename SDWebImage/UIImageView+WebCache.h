@@ -100,6 +100,7 @@
  */
 - (void)sd_setImageWithURL:(NSURL *)url completed:(SDWebImageCompletionBlock)completedBlock;
 
+- (void)sd_setImageWithURL_setContentMode:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock;
 /**
  * Set the imageView `image` with an `url`, placeholder.
  *

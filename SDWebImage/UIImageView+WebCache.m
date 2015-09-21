@@ -43,8 +43,69 @@ static char imageSuccessURLKey;
     [self sd_setImageWithURL:url placeholderImage:placeholder options:0 progress:nil completed:completedBlock];
 }
 
+- (void)sd_setImageWithURL_setContentMode:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock
+{
+    [self sd_setImageWithURL_setContentMode:url placeholderImage:placeholder options:0 progress:nil completed:completedBlock];
+}
+
 - (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options completed:(SDWebImageCompletionBlock)completedBlock {
     [self sd_setImageWithURL:url placeholderImage:placeholder options:options progress:nil completed:completedBlock];
+}
+
+- (void)sd_setImageWithURL_setContentMode:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletionBlock)completedBlock {
+    [self sd_cancelCurrentImageLoad];
+    objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    NSString *sdMemImageUrl = objc_getAssociatedObject(self, &imageSuccessURLKey);
+    if (sdMemImageUrl.length > 0 && [sdMemImageUrl isEqualToString:url.absoluteString]) {
+        if (completedBlock) {
+            self.contentMode = UIViewContentModeScaleAspectFill;
+            completedBlock(self.image, nil, SDImageCacheTypeMemory, url);
+        }
+        return;
+    }
+    
+    if (!(options & SDWebImageDelayPlaceholder)) {
+        dispatch_main_async_safe(^{
+            self.contentMode = UIViewContentModeCenter;
+            self.image = placeholder;
+            [self setNeedsLayout];
+        });
+    }
+    objc_setAssociatedObject(self, &imageSuccessURLKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    if (url) {
+        __weak UIImageView *wself = self;
+        NSString *absoluteUrl = [url.absoluteString copy];
+        id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (!wself) return;
+            dispatch_main_sync_safe(^{
+                if (!wself) return;
+                if (image) {
+                    wself.image = image;
+                    [wself setNeedsLayout];
+                    objc_setAssociatedObject(self, &imageURLKey, absoluteUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                } else {
+                    if ((options & SDWebImageDelayPlaceholder)) {
+                        wself.image = placeholder;
+                        [wself setNeedsLayout];
+                    }
+                    objc_setAssociatedObject(self, &imageURLKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                }
+                if (completedBlock && finished) {
+                    completedBlock(image, error, cacheType, url);
+                }
+            });
+        }];
+        [self sd_setImageLoadOperation:operation forKey:@"UIImageViewImageLoad"];
+    } else {
+        dispatch_main_async_safe(^{
+            NSError *error = [NSError errorWithDomain:@"SDWebImageErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Trying to load a nil url"}];
+            if (completedBlock) {
+                completedBlock(nil, error, SDImageCacheTypeNone, url);
+            }
+        });
+    }
 }
 
 - (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletionBlock)completedBlock {

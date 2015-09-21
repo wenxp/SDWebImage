@@ -173,6 +173,8 @@
  */
 - (void)sd_setBackgroundImageWithURL:(NSURL *)url forState:(UIControlState)state placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock;
 
+- (void)sd_setBackgroundImageWithURL_setContentmode:(NSURL *)url forState:(UIControlState)state placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock;
+
 /**
  * Set the backgroundImageView `image` with an `url`, placeholder and custom options.
  *
