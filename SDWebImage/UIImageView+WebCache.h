@@ -44,6 +44,9 @@
  */
 @interface UIImageView (WebCache)
 
+- (void)setImageAndCancelCurrentImageLoad:(UIImage *)image
+                                  withUrl:(NSURL *)url;
+
 /**
  * Get the current image URL.
  *

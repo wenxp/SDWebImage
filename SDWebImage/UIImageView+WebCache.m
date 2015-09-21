@@ -11,8 +11,17 @@
 #import "UIView+WebCacheOperation.h"
 
 static char imageURLKey;
+static char imageSuccessURLKey;
 
 @implementation UIImageView (WebCache)
+
+- (void)setImageAndCancelCurrentImageLoad:(UIImage *)image
+                                  withUrl:(NSURL *)url
+{
+    [self sd_cancelCurrentImageLoad];
+    objc_setAssociatedObject(self, &imageSuccessURLKey, url.absoluteString, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.image = image;
+}
 
 - (void)sd_setImageWithURL:(NSURL *)url {
     [self sd_setImageWithURL:url placeholderImage:nil options:0 progress:nil completed:nil];
