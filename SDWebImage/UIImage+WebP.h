@@ -6,16 +6,11 @@
 //  Copyright (c) 2013 Dailymotion. All rights reserved.
 //
 
-#ifdef SD_WEBP
+//#ifdef SD_WEBP
+
+// 主程序用到，所以暂时注释webp的判定
 
 #import <UIKit/UIKit.h>
-
-// Fix for issue #416 Undefined symbols for architecture armv7 since WebP introduction when deploying to device
-void WebPInitPremultiplyNEON(void);
-
-void WebPInitUpsamplersNEON(void);
-
-void VP8DspInitNEON(void);
 
 @interface UIImage (WebP)
 
@@ -23,4 +18,4 @@ void VP8DspInitNEON(void);
 
 @end
 
-#endif
+//#endif
