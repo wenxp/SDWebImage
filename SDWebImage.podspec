@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'WebP' do |webp|
     webp.source_files = 'SDWebImage/UIImage+WebP.{h,m}'
-    webp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SD_WEBP=1' }
+#webp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SD_WEBP=1' }
     webp.dependency 'SDWebImage/Core'
     webp.dependency 'libwebp'
   end
