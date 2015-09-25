@@ -19,19 +19,19 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.framework = 'ImageIO'
   
-#s.default_subspec = 'Core'
+  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
     core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
-#core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
+    core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
     core.requires_arc = true
   end
 
-#s.subspec 'MapKit' do |mk|
-#mk.source_files = 'SDWebImage/MKAnnotationView+WebCache.*'
-#mk.framework = 'MapKit'
-#mk.dependency 'SDWebImage/Core'
-#end
+  s.subspec 'MapKit' do |mk|
+    mk.source_files = 'SDWebImage/MKAnnotationView+WebCache.*'
+    mk.framework = 'MapKit'
+    mk.dependency 'SDWebImage/Core'
+   end
 
   s.subspec 'WebP' do |webp|
     webp.source_files = 'SDWebImage/UIImage+WebP.{h,m}'
