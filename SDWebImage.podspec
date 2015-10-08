@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec '3rd' do |3rd|
-    core.source_files = 'SDWebImage/{FL}*.{h,m}'
+    3rd.source_files = 'SDWebImage/{FL}*.{h,m}'
   end
 
   s.subspec 'MapKit' do |mk|
