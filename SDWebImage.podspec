@@ -32,6 +32,9 @@ Pod::Spec.new do |s|
     mk.framework = 'MapKit'
     mk.dependency 'SDWebImage/Core'
    end
+  s.subspec 'libwebp' do |libwebp|
+    libwebp.source_files = 'Vendors/libwebp/src/*/*.*'
+  end
 
   s.subspec 'WebP' do |webp|
     webp.source_files = 'SDWebImage/UIImage+WebP.{h,m}'
