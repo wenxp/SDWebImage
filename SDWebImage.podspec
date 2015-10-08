@@ -32,8 +32,9 @@ Pod::Spec.new do |s|
     mk.framework = 'MapKit'
     mk.dependency 'SDWebImage/Core'
    end
+
   s.subspec 'libwebp' do |libwebp|
-    libwebp.source_files = 'Vendors/libwebp/src/*/*.*'
+    libwebp.source_files = 'Vendors/libwebp/src/*/*.{h,c}'
   end
 
   s.subspec 'WebP' do |webp|
@@ -41,5 +42,6 @@ Pod::Spec.new do |s|
     webp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SD_WEBP=1' }
     webp.dependency 'SDWebImage/Core'
 #webp.dependency 'libwebp'
+    webp.dependency 'SDWebImage/libwebp'
   end
 end
