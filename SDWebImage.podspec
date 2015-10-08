@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
    end
 
   s.subspec 'libwebp' do |libwebp|
-    libwebp.source_files = 'Vendors/libwebp/src/*/*.{h,c}'
+    libwebp.source_files = 'SDWebImage/libwebp/src/*/*.{h,c}'
   end
 
   s.subspec 'WebP' do |webp|
