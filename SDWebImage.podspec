@@ -16,13 +16,12 @@ Pod::Spec.new do |s|
                   'several times, a guarantee that bogus URLs won\'t be retried again and again, ' \
                   'and performances!'
 
-#s.requires_arc = true
+  s.requires_arc = true
   s.framework = 'ImageIO'
 
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
-    core.requires_arc = true
     core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
     core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
   end
