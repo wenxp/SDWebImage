@@ -20,11 +20,7 @@ Pod::Spec.new do |s|
   s.framework = 'ImageIO'
 
 #s.default_subspec = 'Core'
-  s.default_subspec = 'All'
-    s.subspec 'All' do |spec|
-    spec.ios.dependency 'Core'
-    spec.ios.dependency 'WebP'
-  end
+  s.default_subspec = 'WebP'
 
   s.subspec 'Core' do |core|
     core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
