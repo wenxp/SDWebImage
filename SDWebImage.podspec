@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = 'Asynchronous image downloader with cache support with an UIImageView category.'
   s.homepage = 'https://github.com/rs/SDWebImage'
   s.author = { 'Olivier Poitrey' => 'rs@dailymotion.com' }
-  s.source = { :git => 'https://github.com/rs/SDWebImage.git', :tag => s.version.to_s }
+  s.source = { :git => 'https://github.com/wenxp/SDWebImage.git', :tag => s.version.to_s }
 
   s.description = 'This library provides a category for UIImageView with support for remote '      \
                   'images coming from the web. It provides an UIImageView category adding web '    \
@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.framework = 'ImageIO'
 
-#s.default_subspec = 'Core'
   s.default_subspec = 'WebP'
 
   s.subspec 'Core' do |core|
@@ -41,7 +40,6 @@ Pod::Spec.new do |s|
     webp.source_files = 'SDWebImage/UIImage+WebP.{h,m}'
     webp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SD_WEBP=1' }
     webp.dependency 'SDWebImage/Core'
-#webp.dependency 'libwebp'
     webp.dependency 'SDWebImage/libwebp'
   end
 end
