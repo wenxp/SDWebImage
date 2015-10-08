@@ -27,8 +27,8 @@ Pod::Spec.new do |s|
     core.requires_arc = true
   end
 
-  s.subspec '3rd' do |3rd|
-    3rd.source_files = 'SDWebImage/{FL}*.{h,m}'
+  s.subspec '3rd' do |lib|
+    lib.source_files = 'SDWebImage/{FL}*.{h,m}'
   end
 
   s.subspec 'MapKit' do |mk|
