@@ -16,19 +16,15 @@ Pod::Spec.new do |s|
                   'several times, a guarantee that bogus URLs won\'t be retried again and again, ' \
                   'and performances!'
 
-  s.requires_arc = true
+#s.requires_arc = true
   s.framework = 'ImageIO'
-  
-#s.default_subspec = 'Core'
+
+  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
-    core.source_files = 'SDWebImage/{NS,SD,UI}*.{h,m}'
-    core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
     core.requires_arc = true
-  end
-
-  s.subspec '3rd' do |lib|
-    lib.source_files = 'SDWebImage/{FL}*.{h,m}'
+    core.source_files = 'SDWebImage/{NS,SD,UI,FL}*.{h,m}'
+    core.exclude_files = 'SDWebImage/UIImage+WebP.{h,m}'
   end
 
   s.subspec 'MapKit' do |mk|
@@ -41,6 +37,6 @@ Pod::Spec.new do |s|
     webp.source_files = 'SDWebImage/UIImage+WebP.{h,m}'
     webp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SD_WEBP=1' }
     webp.dependency 'SDWebImage/Core'
-    webp.dependency 'libwebp', :git => 'https://github.com/wenxp/libwebp.git', :branch=>'master'
+    webp.dependency 'libwebp'
   end
 end
