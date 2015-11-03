@@ -63,7 +63,7 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
 @property (nonatomic, strong, readonly) NSMutableIndexSet *requestedFrameIndexes; // Indexes of frames that are currently produced in the background
 @property (nonatomic, strong, readonly) NSIndexSet *allFramesIndexSet; // Default index set with the full range of indexes; never changes
 @property (nonatomic, assign) NSUInteger memoryWarningCount;
-@property (nonatomic, strong, readonly) dispatch_queue_t serialQueue;
+@property (nonatomic, assign, readonly) dispatch_queue_t serialQueue;
 @property (nonatomic, strong, readonly) __attribute__((NSObject)) CGImageSourceRef imageSource;
 
 // The weak proxy is used to break retain cycles with delayed actions from memory warnings.
