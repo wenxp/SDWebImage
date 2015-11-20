@@ -29,6 +29,11 @@
         CFRelease(source);
         return [UIImage imageWithData:data];
     }
+    else if (count>500)
+    {
+        CFRelease(source);
+        return nil;
+    }
     else
     {
         CFRelease(source);
