@@ -125,6 +125,8 @@ static char imageSuccessURLKey;
             if (!wself) return;
             dispatch_main_sync_safe(^{
                 if (!wself) return;
+                wself.animatedImage = nil;
+                [wself setNeedsLayout];
                 if (image && (options & SDWebImageAvoidAutoSetImage) && completedBlock)
                 {
                     completedBlock(image, error, cacheType, url);
@@ -141,14 +143,14 @@ static char imageSuccessURLKey;
                                 FLAnimatedImage *animatedImage = [FLAnimatedImage imageWithData:data];
                                 wself.animatedImage = animatedImage;
                                 wself.image = nil;
-                                NSLog(@"************************************data = %@",[url absoluteString]);
+                                //NSLog(@"************************************data = %@",[url absoluteString]);
                             }
                             else if (imageData)
                             {
                                 FLAnimatedImage *animatedImage = [FLAnimatedImage imageWithData:imageData];
                                 wself.animatedImage = animatedImage;
                                 wself.image = nil;
-                                NSLog(@"************************************imageData = %@",[url absoluteString]);
+                                //NSLog(@"************************************imageData = %@",[url absoluteString]);
                             }
                             else
                             {
@@ -157,7 +159,7 @@ static char imageSuccessURLKey;
                         }
                         else
                         {
-                            NSLog(@"************************************don't finished = %@",[url absoluteString]);
+                            //NSLog(@"************************************don't finished = %@",[url absoluteString]);
                             wself.animatedImage = nil;
                             wself.image = image;
                         }
