@@ -130,15 +130,9 @@ static char imageSuccessURLKey;
                     return;
                 }
                 else if (image) {
-                    if([[url absoluteString] rangeOfString:@".gif"].location != NSNotFound)
-                    {
-                        FLAnimatedImage *animatedImage = [FLAnimatedImage imageWithData:[[SDImageCache sharedImageCache]diskImageDataBySearchingAllPathsForKey:url.absoluteString]];
-                        //NSLog(@"url 获取image对应的类 = %@,animatedImage = %@",NSStringFromClass([image class]),animatedImage);
-                        wself.animatedImage = animatedImage;
-//                        wself.animatedImage = (FLAnimatedImage *)image;
-                    }
-                    else
-                    {
+                    if ([image isKindOfClass:[FLAnimatedImage class]]) {
+                        wself.animatedImage =(FLAnimatedImage*) image;
+                    } else {
                         wself.image = image;
                     }
                     [wself setNeedsLayout];

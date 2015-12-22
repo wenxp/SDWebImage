@@ -11,6 +11,7 @@
 #import "UIImage+MultiFormat.h"
 #import <ImageIO/ImageIO.h>
 #import "SDWebImageManager.h"
+#import "FLAnimatedImage.h"
 
 NSString *const SDWebImageDownloadStartNotification = @"SDWebImageDownloadStartNotification";
 NSString *const SDWebImageDownloadReceiveResponseNotification = @"SDWebImageDownloadReceiveResponseNotification";
@@ -381,7 +382,13 @@ NSString *const SDWebImageDownloadFinishNotification = @"SDWebImageDownloadFinis
         if (self.options & SDWebImageDownloaderIgnoreCachedResponse && responseFromCached) {
             completionBlock(nil, nil, nil, YES);
         } else if (self.imageData) {
-            UIImage *image = [UIImage sd_imageWithData:self.imageData];
+            UIImage *image = nil;
+            if([[self.request.URL absoluteString] rangeOfString:@".gif"].location != NSNotFound)
+            {
+                image = [FLAnimatedImage imageWithData:self.imageData];
+            } else {
+                image = [UIImage sd_imageWithData:self.imageData];
+            }
             NSString *key = [[SDWebImageManager sharedManager] cacheKeyForURL:self.request.URL];
             image = [self scaledImageForKey:key image:image];
             
