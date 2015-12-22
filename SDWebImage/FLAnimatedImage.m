@@ -251,7 +251,6 @@ static NSHashTable *allAnimatedImagesWeak;
     return animatedImage;
 }
 
-
 - (void)prepareAnimatedImageWithData:(NSData *)data mode:(FLAnimatedImageInitMode)mode
 {
     // Do one-time initializations of `readonly` properties directly to ivar to prevent implicit actions and avoid need for private `readwrite` property overrides.

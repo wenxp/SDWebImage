@@ -120,7 +120,8 @@ static char imageSuccessURLKey;
     
     if (url) {
         __weak __typeof(self)wself = self;
-        id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+ 
+        id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadImageFLWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSData *imageData, NSURL *imageURL) {
             if (!wself) return;
             dispatch_main_sync_safe(^{
                 if (!wself) return;
@@ -130,9 +131,39 @@ static char imageSuccessURLKey;
                     return;
                 }
                 else if (image) {
-                    if ([image isKindOfClass:[FLAnimatedImage class]]) {
-                        wself.animatedImage =(FLAnimatedImage*) image;
-                    } else {
+                    if([[url absoluteString] rangeOfString:@".gif"].location != NSNotFound)
+                    {
+                        if (finished)
+                        {
+                            NSData *data = [[SDImageCache sharedImageCache]diskImageDataBySearchingAllPathsForKey:url.absoluteString];
+                            if (data)
+                            {
+                                FLAnimatedImage *animatedImage = [FLAnimatedImage imageWithData:data];
+                                wself.animatedImage = animatedImage;
+                                wself.image = nil;
+                                NSLog(@"************************************data = %@",[url absoluteString]);
+                            }
+                            else if (imageData)
+                            {
+                                FLAnimatedImage *animatedImage = [FLAnimatedImage imageWithData:imageData];
+                                wself.animatedImage = animatedImage;
+                                wself.image = nil;
+                                NSLog(@"************************************imageData = %@",[url absoluteString]);
+                            }
+                            else
+                            {
+                                
+                            }
+                        }
+                        else
+                        {
+                            NSLog(@"************************************don't finished = %@",[url absoluteString]);
+                            wself.animatedImage = nil;
+                            wself.image = image;
+                        }
+                    }
+                    else
+                    {
                         wself.image = image;
                     }
                     [wself setNeedsLayout];
@@ -147,7 +178,46 @@ static char imageSuccessURLKey;
                 }
             });
         }];
+//        id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//            if (!wself) return;
+//            dispatch_main_sync_safe(^{
+//                if (!wself) return;
+//                if (image && (options & SDWebImageAvoidAutoSetImage) && completedBlock)
+//                {
+//                    completedBlock(image, error, cacheType, url);
+//                    return;
+//                }
+//                else if (image) {
+//                    if([[url absoluteString] rangeOfString:@".gif"].location != NSNotFound)
+//                    {
+//                        NSData *data = [[SDImageCache sharedImageCache]diskImageDataBySearchingAllPathsForKey:url.absoluteString];
+//                        if (data)
+//                        {
+//                            FLAnimatedImage *animatedImage = [FLAnimatedImage imageWithData:data];
+//                            wself.animatedImage = animatedImage;
+//                        }
+//                        else
+//                        {
+//                        }
+//                    }
+//                    else
+//                    {
+//                        wself.image = image;
+//                    }
+//                    [wself setNeedsLayout];
+//                } else {
+//                    if ((options & SDWebImageDelayPlaceholder)) {
+//                        wself.image = placeholder;
+//                        [wself setNeedsLayout];
+//                    }
+//                }
+//                if (completedBlock && finished) {
+//                    completedBlock(image, error, cacheType, url);
+//                }
+//            });
+//        }];
         [self sd_setImageLoadOperation:operation forKey:@"UIImageViewImageLoad"];
+        
     } else {
         dispatch_main_async_safe(^{
             NSError *error = [NSError errorWithDomain:SDWebImageErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Trying to load a nil url"}];

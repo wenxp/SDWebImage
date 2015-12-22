@@ -95,6 +95,8 @@ typedef void(^SDWebImageCompletionBlock)(UIImage *image, NSError *error, SDImage
 
 typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL);
 
+typedef void(^SDFLWebImageCompletionWithFinishedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSData *imageData, NSURL *imageURL);
+
 typedef NSString *(^SDWebImageCacheKeyFilterBlock)(NSURL *url);
 
 
@@ -208,6 +210,11 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
                                          options:(SDWebImageOptions)options
                                         progress:(SDWebImageDownloaderProgressBlock)progressBlock
                                        completed:(SDWebImageCompletionWithFinishedBlock)completedBlock;
+
+- (id <SDWebImageOperation>)downloadImageFLWithURL:(NSURL *)url
+                                           options:(SDWebImageOptions)options
+                                          progress:(SDWebImageDownloaderProgressBlock)progressBlock
+                                         completed:(SDFLWebImageCompletionWithFinishedBlock)completedBlock;
 
 /**
  * Saves image to cache for given URL
