@@ -421,8 +421,11 @@ static NSHashTable *allAnimatedImagesWeak;
         [NSObject cancelPreviousPerformRequestsWithTarget:_weakProxy];
     }
     
-    if (_imageSource) {
-        CFRelease(_imageSource);
+    if (_frameCount>0)
+    {
+        if (_imageSource) {
+            CFRelease(_imageSource);
+        }
     }
 }
 
